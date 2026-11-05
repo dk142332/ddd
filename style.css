@@ -1,0 +1,323 @@
+/* ===== 전역 초기화 ===== */
+
+/* 기본 여백·패딩 제거 및 박스 모델 통일 */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 전체 페이지 배경 및 기본 글꼴 */
+body {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  background: linear-gradient(135deg, #e8eaf6 0%, #f5f5f5 100%);
+  color: #212121;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ===== 컨테이너 ===== */
+
+/* 중앙 정렬 및 최대 너비 제한 */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* ===== 헤더 ===== */
+
+/* 헤더 상단 여백 및 텍스트 정렬 */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* 제목 스타일 */
+.header__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a237e;
+}
+
+/* 부제목 스타일 */
+.header__subtitle {
+  font-size: 0.9rem;
+  color: #757575;
+  margin-top: 4px;
+}
+
+/* ===== 시도 선택 드롭다운 ===== */
+
+/* 드롭다운 감싸는 영역 */
+.select-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+/* 드롭다운 라벨 */
+.select-wrap__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #424242;
+}
+
+/* 드롭다운 본체 */
+.select-wrap__dropdown {
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid #bbdefb;
+  border-radius: 12px;
+  background: #fff;
+  color: #212121;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  appearance: none;
+  /* 커스텀 화살표 아이콘 */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23757575' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+/* 드롭다운 포커스 상태 */
+.select-wrap__dropdown:focus {
+  outline: none;
+  border-color: #1565c0;
+}
+
+/* ===== 평균 수치 영역 ===== */
+
+/* 평균 영역 카드 스타일 */
+.average-section {
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 16px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 평균 라벨 텍스트 */
+.average-section__label {
+  font-size: 0.95rem;
+  color: #757575;
+  margin-bottom: 4px;
+}
+
+/* 평균 수치 큰 글씨 */
+.average-section__value {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #1565c0;
+  line-height: 1.2;
+}
+
+/* 단위 표시 */
+.average-section__unit {
+  font-size: 0.85rem;
+  color: #9e9e9e;
+  margin-top: 2px;
+}
+
+/* ===== 로딩 표시 ===== */
+
+/* 로딩 영역 정렬 */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 0;
+}
+
+/* 로딩 스피너 애니메이션 */
+.loading__spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #1565c0;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* 스피너 회전 키프레임 */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 로딩 텍스트 */
+.loading__text {
+  font-size: 0.95rem;
+  color: #757575;
+}
+
+/* ===== 에러 메시지 ===== */
+
+/* 에러 알림 상자 */
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 14px 18px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+/* ===== 카드 그리드 ===== */
+
+/* 카드 목록 그리드 레이아웃 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* ===== 개별 카드 ===== */
+
+/* 카드 기본 스타일 */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 6px solid #bdbdbd;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+/* 카드 호버 효과 */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* 등급 1: 좋음 — 파랑 */
+.card--grade-1 {
+  border-left-color: #1565c0;
+  background: linear-gradient(135deg, #e3f2fd 0%, #fff 60%);
+}
+
+/* 등급 2: 보통 — 초록 */
+.card--grade-2 {
+  border-left-color: #2e7d32;
+  background: linear-gradient(135deg, #e8f5e9 0%, #fff 60%);
+}
+
+/* 등급 3: 나쁨 — 주황 */
+.card--grade-3 {
+  border-left-color: #ef6c00;
+  background: linear-gradient(135deg, #fff3e0 0%, #fff 60%);
+}
+
+/* 등급 4: 매우나쁨 — 빨강 */
+.card--grade-4 {
+  border-left-color: #c62828;
+  background: linear-gradient(135deg, #ffebee 0%, #fff 60%);
+}
+
+/* 등급 없음: 회색 */
+.card--grade-none {
+  border-left-color: #bdbdbd;
+  background: linear-gradient(135deg, #f5f5f5 0%, #fff 60%);
+}
+
+/* 측정소 이름 */
+.card__station {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #212121;
+}
+
+/* 등급 배지 */
+.card__badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-left: 8px;
+  color: #fff;
+  vertical-align: middle;
+}
+
+/* 배지 색상 — 좋음 */
+.badge--1 { background: #1565c0; }
+/* 배지 색상 — 보통 */
+.badge--2 { background: #2e7d32; }
+/* 배지 색상 — 나쁨 */
+.badge--3 { background: #ef6c00; }
+/* 배지 색상 — 매우나쁨 */
+.badge--4 { background: #c62828; }
+/* 배지 색상 — 없음 */
+.badge--none { background: #9e9e9e; }
+
+/* 카드 안 데이터 행 */
+.card__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 0.9rem;
+}
+
+/* 데이터 행 라벨 */
+.card__row-label {
+  color: #757575;
+}
+
+/* 데이터 행 값 */
+.card__row-value {
+  font-weight: 600;
+  color: #424242;
+}
+
+/* 측정 시각 텍스트 */
+.card__time {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  text-align: right;
+}
+
+/* ===== 유틸리티 ===== */
+
+/* 숨김 클래스 */
+.hidden {
+  display: none !important;
+}
+
+/* ===== 반응형: 모바일 (480px 이하) ===== */
+@media (max-width: 480px) {
+  /* 모바일에서 제목 축소 */
+  .header__title {
+    font-size: 1.3rem;
+  }
+
+  /* 모바일에서 평균 수치 축소 */
+  .average-section__value {
+    font-size: 2.4rem;
+  }
+
+  /* 모바일에서 카드 한 열 */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== 반응형: 태블릿 (481px ~ 768px) ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* 태블릿에서 카드 두 열 */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
